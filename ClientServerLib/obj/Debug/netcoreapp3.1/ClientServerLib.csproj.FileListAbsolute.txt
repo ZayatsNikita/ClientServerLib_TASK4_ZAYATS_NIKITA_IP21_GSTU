@@ -1,0 +1,9 @@
+D:\Learn\EPAM\task4Retry\ClientServerLib\ClientServerLib\bin\Debug\netcoreapp3.1\ClientServerLib.deps.json
+D:\Learn\EPAM\task4Retry\ClientServerLib\ClientServerLib\bin\Debug\netcoreapp3.1\ClientServerLib.dll
+D:\Learn\EPAM\task4Retry\ClientServerLib\ClientServerLib\bin\Debug\netcoreapp3.1\ClientServerLib.pdb
+D:\Learn\EPAM\task4Retry\ClientServerLib\ClientServerLib\obj\Debug\netcoreapp3.1\ClientServerLib.csprojAssemblyReference.cache
+D:\Learn\EPAM\task4Retry\ClientServerLib\ClientServerLib\obj\Debug\netcoreapp3.1\ClientServerLib.AssemblyInfoInputs.cache
+D:\Learn\EPAM\task4Retry\ClientServerLib\ClientServerLib\obj\Debug\netcoreapp3.1\ClientServerLib.AssemblyInfo.cs
+D:\Learn\EPAM\task4Retry\ClientServerLib\ClientServerLib\obj\Debug\netcoreapp3.1\ClientServerLib.csproj.CoreCompileInputs.cache
+D:\Learn\EPAM\task4Retry\ClientServerLib\ClientServerLib\obj\Debug\netcoreapp3.1\ClientServerLib.dll
+D:\Learn\EPAM\task4Retry\ClientServerLib\ClientServerLib\obj\Debug\netcoreapp3.1\ClientServerLib.pdb
