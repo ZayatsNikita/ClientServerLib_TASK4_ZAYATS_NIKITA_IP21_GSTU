@@ -17,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ClientServerLib\ClientServerLib.csproj" />
     <ProjectReference Include="..\ClientServerLib\ClientServerLib\ClientServerLib.csproj" />
   </ItemGroup>
 

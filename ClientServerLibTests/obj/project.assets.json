@@ -1225,6 +1225,16 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XPath.XmlDocument.dll": {}
         }
+      },
+      "ClientServerLib/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/ClientServerLib.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ClientServerLib.dll": {}
+        }
       }
     }
   },
@@ -4613,10 +4623,16 @@
         "system.xml.xpath.xmldocument.4.3.0.nupkg.sha512",
         "system.xml.xpath.xmldocument.nuspec"
       ]
+    },
+    "ClientServerLib/1.0.0": {
+      "type": "project",
+      "path": "../ClientServerLib/ClientServerLib.csproj",
+      "msbuildProject": "../ClientServerLib/ClientServerLib.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "ClientServerLib >= 1.0.0",
       "D:\\Learn\\EPAM\\task4Retry\\ClientServerLib\\ClientServerLib\\ClientServerLib\\ClientServerLib.csproj",
       "Microsoft.NET.Test.Sdk >= 16.5.0",
       "NUnit >= 3.12.0",
@@ -4649,6 +4665,9 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
+            "D:\\Learn\\EPAM\\task4Retry\\ClientServerLib\\ClientServerLib\\ClientServerLib.csproj": {
+              "projectPath": "D:\\Learn\\EPAM\\task4Retry\\ClientServerLib\\ClientServerLib\\ClientServerLib.csproj"
+            },
             "D:\\Learn\\EPAM\\task4Retry\\ClientServerLib\\ClientServerLib\\ClientServerLib\\ClientServerLib.csproj": {
               "projectPath": "D:\\Learn\\EPAM\\task4Retry\\ClientServerLib\\ClientServerLib\\ClientServerLib\\ClientServerLib.csproj"
             }
