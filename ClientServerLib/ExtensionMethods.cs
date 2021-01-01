@@ -13,7 +13,7 @@ namespace ClientServerLib
         /// <param name="array">Array for seach.</param>
         /// <param name="forSeach">A string whose existence you want to check.</param>
         /// <returns>The index of a string in the specified array, if there is no such string, is returned minus 1.</returns>
-        private static int IndexOf(this string[] array, char forSeach)
+        public static int IndexOf(this string[] array, char forSeach)
         {
             if (array == null)
             {

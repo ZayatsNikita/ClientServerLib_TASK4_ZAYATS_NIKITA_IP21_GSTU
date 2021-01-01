@@ -36,7 +36,7 @@ namespace ClientServerLib
             for (int index = 0; index < length; index++)
             {
                 IsBig = Char.IsUpper(message[index]);
-                int indexInRussianAlfabet = IndexOf(rusLetters, Char.ToLower(message[index]));
+                int indexInRussianAlfabet = rusLetters.IndexOf(Char.ToLower(message[index]));
                 if (indexInRussianAlfabet != -1)
                 {
                     forAdd = engLetters[indexInRussianAlfabet];
