@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "dgSpecHash": "b4uJrZdkrtgqi2J8YxFjBhOOc9jg0j71bfIFypcP39l9vA64qdRo00h4Qg5DNO7HWGczqbSwRFRf6PQAg6zeag==",
-  "success": false,
+  "dgSpecHash": "krvXrZswl2KuhkQPSiG8Ap+rNUfeYfXYOq2XvJ3yLHwmiU8+kxLNHy7NXeYo28OnklTkyqJhtzA0ALUbVgFG3A==",
+  "success": true,
   "projectFilePath": "D:\\Learn\\EPAM\\task4Retry\\ClientServerLib\\ClientServerLibTests\\ClientServerLibTests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\pocht\\.nuget\\packages\\microsoft.codecoverage\\16.5.0\\microsoft.codecoverage.16.5.0.nupkg.sha512",
@@ -68,15 +68,5 @@
     "C:\\Users\\pocht\\.nuget\\packages\\system.xml.xpath\\4.3.0\\system.xml.xpath.4.3.0.nupkg.sha512",
     "C:\\Users\\pocht\\.nuget\\packages\\system.xml.xpath.xmldocument\\4.3.0\\system.xml.xpath.xmldocument.4.3.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1104",
-      "level": "Error",
-      "message": "Не удалось найти проект \"D:\\Learn\\EPAM\\task4Retry\\ClientServerLib\\ClientServerLib\\ClientServerLib\\ClientServerLib.csproj\". Убедитесь, что ссылка на проект действительна и файл проекта существует.",
-      "libraryId": "D:\\Learn\\EPAM\\task4Retry\\ClientServerLib\\ClientServerLib\\ClientServerLib\\ClientServerLib.csproj",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v3.1"
-      ]
-    }
-  ]
+  "logs": []
 }

@@ -109,10 +109,7 @@ namespace ClientServerLib
             {
                 Connect();
             }
-            if (_listenSocket.Connected)
-            {
-                Processing(workTimeInSecond);
-            }
+            Processing(workTimeInSecond);
         }
 
         /// <summary>
