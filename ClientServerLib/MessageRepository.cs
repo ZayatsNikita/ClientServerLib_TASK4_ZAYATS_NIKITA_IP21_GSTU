@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 namespace ClientServerLib
 {
+    /// <summary>
+    /// A class that represents a string store.
+    /// </summary>
     public class MessageRepository
     {
         public MessageRepository()
@@ -23,7 +26,7 @@ namespace ClientServerLib
         {
             if (!repository.ContainsKey(clientName))
             {
-                throw new InvalidOperationException();
+                throw new ArgumentException();
             }
             else
             {

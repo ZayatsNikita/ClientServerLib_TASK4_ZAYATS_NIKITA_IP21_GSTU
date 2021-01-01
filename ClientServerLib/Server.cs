@@ -5,10 +5,16 @@ using System.Threading;
 
 namespace ClientServerLib
 {
+    /// <summary>
+    /// A class that describes the server.
+    /// </summary>
     public class Server : InternetObject
     {
         private event ProcessingStringOnServer _serverStringProcessing;
 
+        /// <summary>
+        /// Subscribe and unsubscribe from an event ServerStringProcessing.
+        /// </summary>
         public event ProcessingStringOnServer ServerStringProcessing
         {
             add
@@ -22,7 +28,9 @@ namespace ClientServerLib
         }
 
         private event ShowData _show;
-
+        /// <summary>
+        /// Subscribe and unsubscribe from an event Show.
+        /// </summary>
         public event ShowData Show
         {
             add
@@ -38,7 +46,11 @@ namespace ClientServerLib
         private IPEndPoint ipPoint;
 
         private string _repliesToMessages;
-        public string RepliesToMessages
+        /// <summary>
+        /// Properties that present message that is send by server to client.
+        /// </summary>
+        /// <exception cref="NullReferenceException">Thrown if you specify null reference as replace message.</exception>
+        public string RepliesForMessages
         {
             get => _repliesToMessages;
             set
@@ -54,6 +66,15 @@ namespace ClientServerLib
 
 
         private Socket _listenSocket;
+        /// <summary>
+        /// Constructor for creating a server.
+        /// </summary>
+        /// <param name="port">The port that the server will listen on.</param>
+        /// <param name="ipPoint">The ip-address that the server will listen on</param>
+        /// <param name="rerliesToMessages">Message that is send by server to client</param>
+        /// <param name="show">Handlers for the event that will occur when a message arrives</param>
+        /// <param name="processingStringOnServer">Handlers for the event that will occur when a message arrives</param>
+        /// <exception cref="ArgumentException">Thrown if you specify value of port greater then 65536 or less then 1024</exception>
         public Server(int port, string ipPoint, string rerliesToMessages, ShowData show, ProcessingStringOnServer processingStringOnServer)
         {
 
@@ -62,7 +83,7 @@ namespace ClientServerLib
                 throw new ArgumentException();
             }
 
-            RepliesToMessages = rerliesToMessages;
+            RepliesForMessages = rerliesToMessages;
 
             this.ipPoint = new IPEndPoint(IPAddress.Parse(ipPoint), port);
 
@@ -72,24 +93,44 @@ namespace ClientServerLib
 
             Show += show;
         }
-
+        /// <summary>
+        /// Method that starts the server for the specified amount of time.
+        /// </summary>
+        /// <param name="workTimeInSecond">Server running time in seconds.</param>
+        /// <exception cref="ArgumentException">Thrown if you set value that less that one as work time.</exception>
+        ///<remarks>The specified time is used only if clients connect to the server, otherwise the server will not stop working.</remarks>
         public void Start(int workTimeInSecond)
         {
             if (workTimeInSecond < 1)
             {
                 throw new ArgumentException();
             }
-            Connect();
-            Processing(workTimeInSecond);
+            if (!_listenSocket.Connected)
+            {
+                Connect();
+            }
+            if (_listenSocket.Connected)
+            {
+                Processing(workTimeInSecond);
+            }
         }
 
-
+        /// <summary>
+        /// A method that connects the server to the destination address and puts the socket in listening mode.
+        /// </summary>
+        /// <exception cref="System.Security.SecurityException"></exception>
+        /// <exception cref="SocketException"></exception>
+        /// <exception cref="ObjectDisposedException"></exception>
         private void Connect()
         {
             _listenSocket.Bind(ipPoint);
             _listenSocket.Listen(10);
         }
 
+        /// <summary>
+        /// The method which handles the client connections.
+        /// </summary>
+        /// <param name="workTimeInSecond">Server running time.</param>
         private void Processing(int workTimeInSecond)
         {
             DateTime startTime = DateTime.Now;
@@ -107,11 +148,14 @@ namespace ClientServerLib
                     break;
                 }
             }
-            Stop();
-
-
         }
-
+        /// <summary>
+        /// Method that performs processing of the connected client
+        /// </summary>
+        /// <param name="handler">The client socket.</param>
+        /// <exception cref="SocketException"></exception>
+        /// <exception cref="System.Security.SecurityException"></exception>
+        /// <exception cref="System.ObjectDisposedException"></exception>
         private void ChildProcessing(Socket handler)
         {
             string receivedMessage;
@@ -130,7 +174,7 @@ namespace ClientServerLib
                     _serverStringProcessing?.Invoke(receivedMessage);
 
 
-                    SendMessage(handler, RepliesToMessages);
+                    SendMessage(handler, RepliesForMessages);
                 }
             }
             catch (Exception ex)
@@ -144,10 +188,24 @@ namespace ClientServerLib
             }
         }
 
+        /// <summary>
+        /// Destructor of the client class.
+        /// </summary>
+        ~Server()
+        {
+            Stop();
+        }
+        /// <summary>
+        /// Method that stops the server
+        /// </summary>
         private void Stop()
         {
             _listenSocket.Shutdown(SocketShutdown.Both);
             _listenSocket.Close();
+            if(_listenSocket.Connected)
+            {
+                _listenSocket.Disconnect(true);
+            }
         }
 
     }

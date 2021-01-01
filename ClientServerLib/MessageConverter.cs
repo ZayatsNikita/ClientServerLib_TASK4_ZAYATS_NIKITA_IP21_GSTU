@@ -3,6 +3,9 @@ using System.Text;
 
 namespace ClientServerLib
 {
+    /// <summary>
+    /// The class that is used to convert strings.
+    /// </summary>
     public static class MessageConverter
     {
 
@@ -14,6 +17,11 @@ namespace ClientServerLib
           "ch", "sh", "shch", "", "y", "", "ea", "yu", "ya" };
 
 
+        /// <summary>
+        /// A method that replaces all Russian letters in a string with their transliterated counterparts.
+        /// </summary>
+        /// <param name="message">String to be processed.</param>
+        /// <returns>The processed message</returns>
         public static string ConvertRussianToTranslit(string message)
         {
             if (message == null)
@@ -47,30 +55,6 @@ namespace ClientServerLib
 
         }
 
-        /// <summary>
-        /// Method that checks whether the array contains a string equal to the specified one.
-        /// </summary>
-        /// <param name="array">Array for seach.</param>
-        /// <param name="forSeach">A string whose existence you want to check.</param>
-        /// <returns>The index of a string in the specified array, if there is no such string, is returned minus 1.</returns>
-        public static int IndexOf(this string[] array, char forSeach)
-        {
-            if (array == null)
-            {
-                throw new NullReferenceException();
-            }
-            else
-            {
-                int length = array.Length;
-                for (int index = 0; index < length; index++)
-                {
-                    if (forSeach == array[index][0])
-                    {
-                        return index;
-                    }
-                }
-                return -1;
-            }
-        }
+       
     }
 }
